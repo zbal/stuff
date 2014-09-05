@@ -1,0 +1,207 @@
+/* Open Sans */
+
+@import '_fonts.scss';
+
+/* Eggshell */
+
+@import 'eggshell';
+
+
+/* Variables */
+
+$avatar: 22px;
+$width: 960px;
+$body: 720px;
+$code: 'Lucida Sans Typewriter', 'Lucida Console', Monaco, 'Bitstream Vera Sans Mono', monospace;
+
+/* General */
+
+body {
+  line-height: 160%;
+	text-align: center;
+  @include transition-property(font-size);
+  @include transition-duration(0.2s);
+}
+
+img.avatar {
+  border-radius: $radius;
+  height: $avatar;
+  width: $avatar;
+  vertical-align: middle;
+}
+
+@mixin halves($reverse: false) {
+  @include box-sizing(border-box);
+  width: 50%;
+  @if $reverse == true {
+    &:nth-child(odd) {
+      float: right;
+      padding-left: $gutter;
+    }
+    &:nth-child(even) {
+      float: left;
+      padding-right: $gutter;
+    }
+  }
+  @else {
+    &:nth-child(odd) {
+      float: left;
+      padding-right: $gutter;
+    }
+    &:nth-child(even) {
+      float: right;
+      padding-left: $gutter;
+    }
+  }
+}
+
+.button {
+  strong {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  }
+}
+
+.wrapper {
+	margin: 0 auto;
+  max-width: $width;
+  position: relative;
+  text-align: left;
+  width: 90%;
+}
+
+/* Header */
+
+#header {
+  @include box-sizing(border-box);
+	padding: $gutter 0;
+	.logo {
+		&:before {
+			@include font-size($large);
+			@include icon();
+			content: '2';
+			float: left;
+			margin-right: $gutter/4;
+	  }
+	}
+  .signin {
+    font-weight: bold;
+  }
+}
+
+/* Main */
+
+#main {
+  position: relative;
+  .content {
+    margin-bottom: 2*$gutter;
+  }
+	.sidebar + .content {
+    @include box-sizing(border-box);
+    img {
+      max-width: 100%;
+    }
+  }
+  .sidebar {
+    @include box-sizing(border-box);
+    @include font-size($smaller);
+    input,
+    .button {
+      @include box-sizing(border-box);
+      width: 100%;
+    }
+    input {
+      padding: $gutter/2;
+    }
+    .button {
+      padding: $gutter/2 $gutter;
+    }
+    .pitch {
+      margin-bottom: $gutter;
+      .button + small {
+        display: block;
+        padding-top: $gutter/4;
+        text-align: center;
+      }
+    }
+    .menu {
+      border-top: 1px solid $light;
+      @include font-size();
+      margin-bottom: $gutter;
+      a {
+        border-bottom: 1px solid $light;
+        display: block;
+        padding: 1.5*$gutter/2 0;
+        @include transition-property(background);
+        @include transition-duration(0.2s);
+        &.active {
+          color: inherit;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+	.wrapper > .header {
+		padding: 3*$gutter 0;
+		text-align: center;
+	}
+  &.blog {
+    position: relative;
+    @import 'partials/_blog.scss';
+  }
+}
+
+@import 'partials/_landing.scss';
+
+/* About page */
+
+body.page-about {
+  #main .content {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        @include font-size($smaller);
+        margin: 0;
+        padding: $gutter/2;
+        h3 {
+          margin: 0;
+        }
+        h4 {
+          font-size: inherit;
+          margin: 0;
+        }
+        img {
+          border-radius: 50%;
+          float: left;
+          margin-right: $gutter/2;
+          width: 3*$gutter;
+        }
+      }
+    }
+  }
+}
+
+/* Footer */
+
+#footer {
+  background: $light;
+  border-top: 1px solid $line;
+  padding: 1.5*$gutter 0;
+	a {
+    color: inherit;
+  	@include font-size($small);
+  	padding: 0 $gutter/2;
+    &:hover {
+      color: $black;
+    }
+  }
+}
+
+/* SUPPORT (CHAT & INTERCOM) */
+
+@import '_support.scss';
+
+/* Responsive */
+
+@import 'partials/_responsive.scss';

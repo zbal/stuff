@@ -1,0 +1,73 @@
+#support {
+  bottom: $gutter;
+  color: #FFF;
+  cursor: pointer;
+  right: $gutter;
+  position: fixed;
+  &:hover {
+    h2 {
+      opacity: 1;
+    }
+    .links {
+      height: auto;
+      opacity: 1;
+      padding-bottom: $gutter/5;
+      @include transition-property(opacity, padding);
+      @include transition-duration(0.2s);
+      visibility: visible;
+      width: auto;
+    }
+  }
+  h2 {
+    background: $black;
+    border-radius: $radius;
+    color: inherit;
+    display: inline-block;
+    line-height: 1;
+    margin: 0;
+    opacity: 0.9;
+    padding: $gutter/2;
+    &:before {
+      @include icon;
+      content: '0';
+    }
+    span {
+      display: none;
+    }
+  }
+  .links {
+    bottom: 100%;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+    width: 0;
+    a {
+      background: $black;
+      color: white;
+      display: block;
+      @include font-size($smaller);
+      padding: $gutter/2;
+      text-align: left;
+      white-space: nowrap;
+      &:first-child {
+        border-radius: $radius $radius 0 0;
+      }
+      &:last-child {
+        border-radius: 0 0 $radius $radius;
+      }
+      &:hover {
+        background: tint($black, 10%);
+      }
+      &:before {
+        @include icon;
+        opacity: 0.5;
+        margin-right: $gutter/2;
+      }
+      &.chat:before { content: '0'; }
+      &.help:before { content: '='; }
+      &.documentation:before { content: '-'; }
+    }
+  }
+}

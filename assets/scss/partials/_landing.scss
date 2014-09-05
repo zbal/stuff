@@ -1,0 +1,162 @@
+$thin: 720px;
+
+body.page-front {
+  #main {
+    .section {
+      @include clearfix;
+      padding: 8rem 0 0;
+      .wrapper > .header {
+        padding: 0;
+        text-align: center;
+        h2 {
+          margin: 0 0 8rem;
+        }
+      }
+      h2 {
+        @include font-size($huge);
+      }
+      h3 {
+        @include font-size($large);
+      }
+      .button {
+        &.signup {
+          @include button($green);
+          padding: 1.5*$gutter/4 2*$gutter;
+          width: 6*$gutter;
+        }
+      }
+      &.hero,
+      &.signup {
+        .wrapper {
+          text-align: center;
+        }
+      }
+      &.hero {
+        background: $light;
+        @include background-image(linear-gradient(#FFF, $light, $light));
+        @include box-sizing(border-box);
+        @include clearfix;
+        padding-bottom: 0;
+        position: relative;
+        h1 {
+          margin: 0 auto $gutter/2;
+        }
+        h2 {
+          color: inherit;
+          margin: 0 auto;
+        }
+        .button {
+          margin: 2*$gutter auto 8rem;
+        }
+        .preview {
+          text-align: center;
+          .bar,
+          .body {
+            border: 1px solid $line;
+            display: block;
+            margin: 0 auto;
+            max-width: 800px;
+            width: 100%;
+          }
+          .bar {
+            background: #FFF;
+            border-radius: 2*$radius 2*$radius 0 0;
+            @include box-sizing(border-box);
+            color: $grey;
+            @include font-size($smaller);
+            line-height: 1;
+            padding: 1.5*$gutter/4 $gutter/2;
+            position: relative;
+            text-align: center;
+            img {
+              height: $gutter/2 - 2;
+              left: $gutter/2;
+              margin-top: -$gutter/4 + 1;
+              position: absolute;
+              top: 50%;
+            }
+          }
+          .body {
+            border-width: 0 1px;
+            @include box-sizing(border-box);
+          }
+        }
+      }
+      &.how {
+        border-top: 1px solid $line;
+        @import 'partials/_how.scss';
+      }
+      &.features {
+        .feature {
+          @include clearfix;
+          margin: 8rem 0;
+          position: relative;
+          &:first-child {
+            margin-top: 0;
+          }
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &:hover {
+            .preview {
+              img {
+                &:first-child {
+                  display: inline-block;
+                }
+                &:last-child {
+                  display: none;
+                }
+              }
+            }
+          }
+          &.beta {
+            h2:after {
+              color: $green;
+              content: 'Beta';
+              display: inline-block;
+              @include font-size($small);
+              line-height: 1;
+              margin-left: $gutter/2;
+              text-transform: uppercase;
+              vertical-align: top;
+            }
+          }
+          .preview {
+            text-align: center;
+            img {
+              max-width: 100%;
+              width: 300px;
+              &:first-child {
+                display: none;
+              }
+            }
+          }
+          .pitch {
+            h2 {
+              margin-bottom: $gutter/2;
+              text-align: left;
+            }
+            p {
+              color: $grey;
+            }
+          }
+        }
+        .more {
+          border-top: 1px solid $line;
+          display: block;
+          text-align: center;
+        }
+      }
+      &.pricing {
+        margin-bottom: 8rem;
+        .wrapper {
+          text-align: center;
+          .notification {
+            text-align: center;
+          }
+          @import '_pricing.scss';
+        }
+      }
+    }
+  }
+}

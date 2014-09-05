@@ -1,0 +1,284 @@
+---
+title: A Single API For Your Servers
+template: default.html
+---
+
+<section id='main' class='landing'>
+  <header class='hero section' name='hero'>
+    <div class='wrapper'>
+      <h1>Server management that doesn't suck</h1>
+      <h2>Add and automate servers on any cloud from AWS to Digital Ocean with git commands</h2>
+      <a href='https://app.devo.ps' class='button signup'>Try it for <strong>free</strong></a>
+      <section class='preview'>
+        <header class='bar'><img src='/images/controls.png'/> http://devo.ps</header>
+        <img class='body' src='/images/devo.ps-notebook.png'/>
+      </section>
+    </div>
+  </header>
+
+  <section class='how section' name='how'>
+    <div class='wrapper'>
+      <header class='header'>
+        <h2>Manage servers like you manage code</h2>
+      </header>
+      
+      <aside class='steps'>
+        <div class='step active' rel='editor'>
+          <h3>Servers and tasks are YAML files</h3>
+          <p>Setup and automate your own servers on AWS, Digital Ocean, Linode or Rackspace using a simple YAML syntax.</p>
+        </div>
+        <div class='step' rel='console'>
+          <h3>Commit your changes using Git</h3>
+          <p>Your changes are tracked in Git, may this be an update on your deploy pipeline or adding CouchDB on <code>Web 1</code>.</p>
+        </div>
+        <div class='step' rel='browser'>
+          <h3>We take care of the heavy lifting</h3>
+          <p>Once your changes are pushed, devo.ps will simply propagate them to your servers.</p>
+        </div>
+      </aside>
+
+      <section class='illustrations'>
+        <article class='illustration editor'>
+          <header class='bar'><img src='/images/controls.png'/> nodes/web.yml</header>
+          <div class='body'>
+            <aside class='files'>
+              <div>
+                nodes/
+                <div>db.yml</div>
+                <div class='active'>web.yml</div>
+                
+              </div>
+              <div>tasks/</div>
+              <div>scripts/</div>
+              <div>README.md</div>
+            </aside>
+
+            <pre><i>id</i>: <b>web</b>
+<i>name</i>: Web server
+<i>type</i>: server
+
+<i>provider</i>:
+  <i>name</i>: <b>digitalocean</b>
+
+<i>services</i>:
+  <i>nodejs</i>: <b>*</b>
+  <i>nginx</i>: <b>*</b>
+
+<i>configuration</i>:
+  <i>nodejs</i>:
+    <i>packages</i>:
+      - <b>gulp</b>
+      - <b>forever</b>
+      - <b>bower</b></pre>
+          </div>
+        </article>
+
+        <article class='illustration console'>
+          <header class='bar'><img src='/images/controls.png'/> Terminal</header>
+          <div class='body'>
+            <pre>$ git add nodes/web.yml
+$ git commit -m 'Installing NGINX and Node.js'
+  [master 27ba3cb] Adding NGINX server
+  1 file changed, 2 insertions(+), 2 deletions(-)
+$ git push
+  Counting objects: 7, done.
+  Delta compression using up to 2 threads.
+  Compressing objects: 100% (3/3), done.
+  Writing objects: 100% (4/4), 444 bytes, done.
+  Total 4 (delta 1), reused 0 (delta 0)
+  remote: 
+  remote: <strong>[devo.ps] Git push accepted.</strong>
+  remote: <strong>[devo.ps] 1 node updated: web (nodes/web.yml)</strong>
+  remote: <strong>[devo.ps] </strong>
+  remote: <strong>[devo.ps] Your nodes are being synced, to see their status:</strong>
+  remote: <strong>[devo.ps]  Go to: https://app.devo.ps/#/ninjacoder/meanjs/nodes</strong>
+  remote: <strong>[devo.ps]  Use the CLI: `devops logs --repo ninjacoder/meanjs --node &lt;node_id&gt;`</strong>
+  remote: 
+  To git@git.devo.ps:ninjacoder/meanjs
+  078335f..27ba3cb  master -&gt; master
+$ </pre>
+          </div>
+        </article>
+
+        <article class='illustration browser'>
+          <header class='bar'><img src='/images/controls.png'/> http://app.devo.ps</header>
+          <div class='body'>
+            <ul>
+              <li class='running'>
+                <div class='event'>
+                  <h4><strong>Web server</strong> updated (2 services added)</h4>
+                  <small>"Installing NGINX and Node.js" by ninjacoder</small>
+                 </div>
+              </li>
+              <li class='success'>
+                <div class='event'>
+                  <h4><strong>Deploy task</strong> removed</h4>
+                  <small>"Removing old deploy pipeline" by coderbuddy</small>
+                </div>
+              </li>
+              <li class='error'>
+                <div class='event'>
+                  <h4><strong>Deploy task</strong> run failed</h4>
+                  <small>Triggered manually by ninjacoder</small>
+                </div>
+              </li>
+              <li class='success'>
+                <div class='event'>
+                  <h4><strong>Deploy task</strong> added</h4>
+                  <small>"Adding deploy pipeline" by coderbuddy</small>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+    </div>
+  </section>
+
+  <section class='features section' id='features' name='features'>
+    <div class='wrapper'>
+      <header class='header'>
+        <h2>Dealing with servers doesn't have to be a pain</h2>
+      </header>
+
+      <article class='feature git'>
+        <section class='pitch'>
+          <h3>Git-powered</h3>
+          <p>Use the Git workflows you know work for your code to manage your servers: <code>fork</code> an entire continuous integration setup, <code>git add</code> a new box on Digital Ocean or accept <code>pull requests</code> for security patches.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/git.gif' alt='Git-powered'/>
+          <img src='/images/features/git.png' alt='Git-powered'/>
+        </section>
+      </article>
+
+      <article class='feature collaboration'>
+        <section class='pitch'>
+          <h3>Collaborative ops</h3>
+          <p>Invite collaborators to your repositories and start collectively manage your infrastructure. No more wondering how your code gets pushed in production or who can help with adding a Ruby dependency on the dev server.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/sharing.gif' alt='Colaboration'/>
+          <img src='/images/features/sharing.png' alt='Colaboration'/>
+        </section>
+      </article>
+
+      <article class='feature'>
+        <section class='pitch'>
+          <h3>Best practices included</h3>
+          <p>We take care of tedious tasks and make sure your servers are setup following industry best practices. Don't waste your time setting up iptables or deploying the SSH keys of your team on your servers.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/best-practices.gif' alt='Best practices'/>
+          <img src='/images/features/best-practices.png' alt='Best practices'/>
+        </section>
+      </article>
+
+      <article class='feature automation'>
+        <section class='pitch'>
+          <h3>Automate all the things</h3>
+          <p>We make automating your infrastructure downright easy; describe in a few lines your entire build and deployment pipelines and trigger them every time your code is updated on GitHub.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/automate.gif' alt='Automation'/>
+          <img src='/images/features/automate.png' alt='Automation'/>
+        </section>
+      </article>
+
+      <article class='feature activity'>
+        <section class='pitch'>
+          <h3>Keep an eye on any change</h3>
+          <p>Your whole infrastructure is in Git; see who does what and when at any moment on any of your machines, may this be a change of configuration on NGINX or a failed deployment.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/activity.gif' alt='Activity'/>
+          <img src='/images/features/activity.png' alt='Activity'/>
+        </section>
+      </article>
+
+      <article class='feature beta vm'>
+        <section class='pitch'>
+          <h3>Snapshot your servers as VM</h3>
+          <p>Need to do some work on your local? Don't waste your time setting up you local stack; at any time you can download a replica of any server as a virtual machine to work on your local.</p>
+        </section>
+
+        <section class='preview'>
+          <img src='/images/features/vm.gif' alt='Virtual Machine'/>
+          <img src='/images/features/vm.png' alt='Virtual Machine'/>
+        </section>
+      </article>
+    </div>
+  </section>
+
+  <section class='pricing section' id='pricing' name='pricing'>
+    <div class='wrapper'>
+      <header class='header'>
+        <h2>Plans & Pricing</h2>
+      </header>
+      
+      <div class='notification'>We'almost there, but while we iron out the last few details, devo.ps is free for all.</div>
+
+      <section class='plans'>
+        <article class='plan free'>
+          <h2>Free</h2>
+          <ul>
+            <li>1 node</li>
+            <li>Up to 10 tasks</li>
+            <li>10 days logs</li>
+            <li>Unlimited repositores</i>
+            <li>Unlimited collaborators</i>
+          </ul>
+          <footer class='footer'>
+            <a href='http://app.devo.ps/?plan=free' class='button add'>Sign up</a>
+          </footer>
+        </article>
+        <article class='plan bootstrap'>
+          <h2>Bootstrap <strong>$49</strong></h2>
+          <ul>
+            <li>4 nodes</li>
+            <li>Up to 10 tasks per node</li>
+            <li>30 days logs</li>
+            <li>Unlimited repositores</i>
+            <li>Unlimited collaborators</i>
+          </ul>
+          <footer class='footer'>
+            <button class='button' disabled>Sign up</button>
+          </footer>
+        </article>
+        <article class='plan startup'>
+          <h2>Startup <strong>$99</strong></h2>
+          <ul>
+            <li>10 nodes</li>
+            <li>Up to 10 tasks per node</li>
+            <li>30 days logs</li>
+            <li>Unlimited repositores</i>
+            <li>Unlimited collaborators</i>
+          </ul>
+          <footer class='footer'>
+            <button class='button' disabled>Sign up</button>
+          </footer>
+        </article>
+        <article class='plan business'>
+          <h2>Business <strong>$199</strong></h2>
+          <ul>
+            <li>25 nodes</li>
+            <li>Up to 10 tasks per node</li>
+            <li>30 days logs</li>
+            <li>Unlimited repositores</i>
+            <li>Unlimited collaborators</i>
+          </ul>
+          <footer class='footer'>
+            <button class='button' disabled>Sign up</button>
+          </footer>
+        </article>
+      </section>
+
+      <h3>Have a question? <a class='chat' href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with our team</h3>.
+    </div>
+  </section>
+</section>

@@ -1,0 +1,225 @@
+
+/* Smartphones, iPhone, portrait 480x320 phones */
+
+@media (max-width: 481px) {
+  html {
+    font-size: 57%;
+  }
+
+  #main {
+    .sidebar {
+      @include clearfix;
+      border-bottom: 1px solid $light;
+      margin-bottom: $gutter;
+      padding-bottom: $gutter;
+    }
+  }
+
+  body.page-front {
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(36);
+          }
+          h2 {
+            @include font-size(18);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+@media (max-width: 641px) {
+  #header {
+    .toggle {
+      color: $grey;
+      float: right;
+      &:after {
+        @include icon;
+        content: '/';
+        margin-left: $gutter/4;
+        vertical-align: middle;
+      }
+      &.active {
+        &:after {
+          content: '\'';
+        }
+        + .menu {
+          display: block;
+        }
+      }
+    }
+    .menu {
+      border-bottom: 1px solid $light;
+      display: none;
+      margin: $gutter 0 (-$gutter);
+      a {
+        border-top: 1px solid $light;
+        display: block;
+        padding: 1.5*$gutter/2 0;
+        &.active {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
+
+/* Portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+
+@media (min-width: 481px) and (max-width: 641px) {
+  html {
+    font-size: 59%;
+  }
+
+  #main {
+    .sidebar {
+      @include clearfix;
+      border-bottom: 1px solid $light;
+      margin-bottom: $gutter;
+      padding-bottom: $gutter;
+      > * {
+        @include halves();
+      }
+      .subscribe {
+        border-left: 1px solid $light;
+      }
+    }
+  }
+
+  body.page-front {
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(42);
+          }
+          h2 {
+            @include font-size(16);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+
+@media (min-width: 641px) {
+  #header {
+    @include clearfix;
+    .logo {
+      float: left;
+    }
+    .toggle {
+      display: none;
+    }
+    .menu {
+      float: right;
+      @include font-size($small);
+      a {
+        margin-left: $gutter;
+        &.active {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  $sidebar: 220px;
+  #main {
+    .sidebar {
+      width: $sidebar;
+      &.sticky {
+        position: absolute;
+      }
+    }
+    .sidebar + .content {
+      margin-right: $sidebar;
+      padding-right: $gutter;
+    }
+    .sidebar {
+      border-left: 1px solid $light;
+      float: right;
+      padding-left: $gutter;
+    }
+    &.post {
+      .subscribe,
+      .pitch {
+        @include halves();
+      }
+    }
+    &.landing {
+      .section {
+        &.how {
+          .steps,
+          .illustrations {
+            @include halves();
+          }
+        }
+        &.features {
+          .feature {
+            &:nth-child(odd) {
+              > * {
+                @include halves;
+              }
+            }
+            &:nth-child(even) {
+              > * {
+                @include halves(true);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body.page-front {
+    #main {
+      .section {
+        &.hero {
+          h1 {
+            @include font-size(48);
+          }
+          h2 {
+            @include font-size(20);
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Tablet, landscape iPad, lo-res laptops ands desktops */
+
+@media (min-width: 961px) {
+  $sidebar: 240px;
+  #main {
+    .sidebar {
+      width: $sidebar;
+    }
+    .sidebar + .content {
+      margin-right: $sidebar;
+    }
+    &.post {
+      .subscribe ul li.newsletter * {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+      }
+    }
+  }
+}
+
+/* Big landscape tablets, laptops, and desktops */
+
+@media (min-width: 1025px) { }
+
+/* Hi-res laptops and desktops */
+
+@media (min-width: 1281px) { }

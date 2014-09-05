@@ -1,0 +1,86 @@
+{
+    "source": "./source",
+    "destination": "./_site",
+    "metadata": {
+        "site": {
+            "title": "devo.ps",
+            "name": "devo.ps",
+            "description": "Dealing with servers doesn't have to be a pain: manage and automate all your servers with a few Git commands on any cloud, from Digital Ocean to AWS.",
+            "url": "http://devo.ps",
+            "author": "devo.ps",
+            "email": "info@devo.ps",
+            "ga": "UA-34006371-1",
+            "gauges": "510b396a613f5d2666000007",
+            "keywords": [
+                "devo.ps",
+                "DevOps",
+                "Cloud",
+                "servers",
+                "git",
+                "API",
+                "infrastructure",
+                "automation",
+                "Continuous Integration",
+                "Continuous Deployment",
+                "Configuration Management",
+                "Orchestration",
+                "System Administration",
+                "PaaS",
+                "IaaS"
+            ]
+        }
+    },
+    "metalsmith": {
+        "metalsmith-markdown": {
+            "xhtml": true
+        },
+        "metalsmith-include": {},
+        "metalsmith-drafts": {},
+        "metalsmith-build-date": true,
+        "metalsmith-collections": {
+            "blog": {
+                "sortBy": "date",
+                "reverse": true
+            },
+            "team": {}
+        },
+        "metalsmith-excerpts": true,
+        "metalsmith-permalinks": {},
+        "metalsmith-templates": {
+            "engine": "swig",
+            "cache": false,
+            "default": "page.html",
+            "directory": "./templates"
+        },
+        "metalsmith-assets": null,
+        "metalsmith-static": null
+    },             
+    "assets": {
+        "vendor": {
+            "js": [
+                "bower_components/jquery/dist/jquery.js",
+                "bower_components/highlightjs/highlight.pack.js"
+            ],
+            "css": [
+                "bower_components/highlightjs/styles/github.css"
+            ]
+        },
+        "custom": {
+            "js": [
+                "assets/js/*.js"
+            ],
+            "css": [
+                "assets/css/*.css"
+            ],
+            "scss": [
+                "assets/scss/**/*.{scss,sass}"
+            ],
+            "fonts": [
+                "assets/fonts/*"
+            ],
+            "favicons": [
+                "assets/favicons/*"
+            ]
+        }
+    }
+}

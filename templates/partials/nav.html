@@ -1,0 +1,12 @@
+<nav class='menu'>
+  <!-- <a href='/features'{% if path == 'features' %} class='active'{% endif %}>Features</a> -->
+  <!-- <a href='/pricing'{% if path == 'pricing' %} class='active'{% endif %}>Pricing</a> -->
+  <a href='/about'{% if path == 'about' %} class='active'{% endif %}>About</a>
+  <a href='/privacy'{% if path == 'privacy' %} class='active'{% endif %}>Privacy</a>
+  <a href='/tos'{% if path == 'tos' %} class='active'{% endif %}>Terms of Service</a>
+</nav>
+
+<section class='pitch'>
+  <h3>A single API for your servers</h3>
+  {% include 'about.html' %}
+</section>

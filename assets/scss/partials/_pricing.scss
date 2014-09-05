@@ -1,0 +1,61 @@
+.plans {
+  @include clearfix;
+  margin-bottom: $gutter;
+  text-align: left;
+  .plan {
+    border: 1px solid $line;
+    border-right-width: 0;
+    @include box-sizing(border-box);
+    float: left;
+    width: 25%;
+    &:first-child {
+      border-radius: 2*$radius 0 0 2*$radius;
+    }
+    &:last-child {
+      border-radius: 0 2*$radius 2*$radius 0;
+      border-right-width: 1px;
+    }
+    /*&.bootstrap {
+      border-color: shade($green, 10%);
+      h2 {
+        border-bottom-color: $green;
+        color: $green;
+        strong {
+          color: tint($green, 40%);
+        }
+      }
+      & + .plan {
+        border-left-color: shade($green, 10%);
+      }
+    }*/
+    h2 {
+      border-bottom: 1px solid $line;
+      @include font-size($larger);
+      margin: 0;
+      padding: $gutter/2;
+      text-align: center;
+      strong {
+        color: $grey;
+        font-weight: normal;
+      }
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      li {
+        border-top: 1px solid $light;
+        padding: $gutter/2;
+      }
+    }
+    .footer {
+      padding: $gutter/2;
+      .button {
+        @include box-sizing(border-box);
+        width: 100%;
+      }
+    }
+  }
+  & + h3 {
+    @include font-size($larger);
+  }
+}

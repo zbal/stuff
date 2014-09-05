@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8'/>
+  <title>{{ title }} | {{ site.title }}</title>
+
+  {% if site.description %}<meta name='description' content='{{ site.description }}'/>{% endif %}
+  <meta name='keywords' content='{{ site.keywords | join(", ") }}{% if tags %}, {{ tags | join(", ") }}{% endif %}'/>
+  <meta name='viewport' content='width=device-width, initial-scale=1'/>
+  <meta name="msvalidate.01" content="86C1F235D57610586CFC5A2D77B7D446" />
+  <meta http-equiv="Content-Language" content="en"/>
+  
+  <!-- Favicons -->
+  {% include 'partials/_favicons.html' %}
+
+  <!-- CSS -->
+  <link href='/assets/styles.css' rel='stylesheet' type='text/css'/>
+</head>
+<body class='page-{{ path | default("front") }}'>
+  <header id='header'>
+    <div class='wrapper'>
+      <a href='/' class='logo'>devo.ps</a>
+
+      <button class='toggle'>Menu</button>
+      <nav class='menu'>
+        <a href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
+        <a href='http://docs.devo.ps'>Documentation</a>
+        <a href='/#pricing'>Pricing</a>
+        <a href='/blog'>Blog</a>
+        <a href='http://app.devo.ps' class='signin'>Sign in</a>
+      </nav>
+    </div>
+  </header>
+
+  {% block content %}{{ contents | safe }}{% endblock %}
+
+  <nav id='footer'>
+    <div class='wrapper'>
+      <a href='/about'>About</a>
+      <a href='/privacy'>Privacy</a>
+      <a href='/tos'>Terms of Service</a>
+    </div>
+  </nav>
+
+  <aside id='support'>
+    <h2><span>Need help?</span></h2>
+    <nav class='links'>
+      <a class='chat' href='https://www.hipchat.com/gyHEHtsXZ' target='_blank'>Chat with us</a>
+      <a class='help' href='mailto:help@devo.ps' target='_blank'>Contact the support</a>
+      <a class='documentation' href='http://docs.devo.ps' target='_blank'>Check the documentation</a>
+    </nav>
+  </aside>
+
+  <!-- JS -->
+  <script src='/assets/scripts.js' type='text/javascript'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!--[if lt IE 9]><script src='http://html5shim.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+  {% if site.gauges %}{% include 'partials/_gauges.html' %}{% endif %}
+	{% if site.ga %}{% include 'partials/_ga.html' %}{% endif %}
+</body>
+</html>
